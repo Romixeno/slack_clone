@@ -1,9 +1,11 @@
-import { Button } from "@/components/ui/button";
-import AuthScreen from "@/features/auth/components/AuthScreen";
-import { fetchQuery } from "convex/nextjs";
-import Image from "next/image";
-import { api } from "../../convex/_generated/api";
+"use client";
 
-export default async function Home() {
-  return <AuthScreen />;
+import UserButton from "@/features/auth/components/UserButton";
+
+export default function Home() {
+  return (
+    <div>
+      <UserButton />
+    </div>
+  );
 }
