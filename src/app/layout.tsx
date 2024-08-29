@@ -5,6 +5,10 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ConvexClientProvider } from "../components/ConvexProvider";
 
+import { Provider } from "jotai";
+import Modals from "@/components/Modals";
+import { Toaster } from "@/components/ui/sonner";
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
@@ -26,7 +30,13 @@ export default function RootLayout({
             inter.variable
           )}
         >
-          <ConvexClientProvider>{children}</ConvexClientProvider>
+          <ConvexClientProvider>
+            <Provider>
+              <Toaster />
+              <Modals />
+              {children}
+            </Provider>
+          </ConvexClientProvider>
         </body>
       </html>
     </ConvexAuthNextjsServerProvider>
